@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
-require('./services/passport');
+require('./models/user'); // Load in user schema and users model
+require('./services/passport'); // Load passport config
 
 const app = express();
 const PORT = process.env.PORT || 5000;
