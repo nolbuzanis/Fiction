@@ -6,7 +6,7 @@ const keys = require('./config/keys');
 require('./models/user'); // Load in user schema and users model
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 // Cookies Session
 app.use(
@@ -22,11 +22,12 @@ require('./services/passport'); // Load passport config
 // Mongoose
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
-// Passport
-require('./routes/authRoutes')(app);
-
 app.get('/', (req, res) => {
+  console.log('Home Route');
   res.send({ hi: 'there' });
 });
+
+// Passport
+require('./routes/authRoutes')(app);
 
 app.listen(PORT, () => console.log('Now listening on Port: ' + PORT));

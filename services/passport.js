@@ -7,7 +7,6 @@ const googleClientSecret = require('../config/keys').googleClientSecret;
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
-  console.log(user.id);
   done(null, user.id);
 });
 
