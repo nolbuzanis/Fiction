@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 // Cookies Session
 app.use(
   cookieSession({
-    // maxAge: Date.now() + 30 * 24 * 60 * 60 * 1000, //passed in milliseconds
+    maxAge: 30 * 24 * 60 * 60 * 1000, //passed in milliseconds
     keys: [keys.cookieKey]
   })
 );
